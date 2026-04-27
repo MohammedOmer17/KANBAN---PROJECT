@@ -16,24 +16,24 @@
             <div id="todo" class="task-column ">
                 <div class="heading">
                     <h2>Todo</h2>
-                    <h2>Count</h2>
+                    <h2 class="Count" >Count</h2>
                 </div>
                 <div draggable="true" class="task">
-                    <h2>Task 1</h2>
+                    <h2 >Task 1</h2>
                     <p>task description</p>
-                    <button>Delete</button>
+                    <button id="delete-btn" >Delete</button>
                 </div>
             </div>
             <div id="progress" class="task-column ">
                 <div class="heading">
                     <h2>Progress</h2>
-                    <h2>Count</h2>
+                    <h2 class="Count">Count</h2>
                 </div>
             </div>
             <div id="done" class="task-column">
                 <div class="heading">
                     <h2>Done</h2>
-                    <h2>Count</h2>
+                    <h2 class="Count">Count</h2>
                 </div>
             </div>
         </section>
@@ -43,10 +43,11 @@
         <div class="center">
 
         <input type="text"
+        id="add-title"
          placeholder="note heading">
          
-        <textarea name="" id="" placeholder="description"></textarea>
-        <button>Add Note</button>
+        <textarea name="" id="add-desc" placeholder="description"></textarea>
+        <button id="add-new-task" >Add Note</button>
         </div>
     </div>
     <script src="script.js"></script>

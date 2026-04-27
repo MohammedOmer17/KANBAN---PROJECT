@@ -3,6 +3,9 @@ const progress = document.querySelector('#progress');
 const done  = document.querySelector('#done');
 let dragElement  = null;
 const addTask = document.querySelector("#addTask");
+const addNewTask = document.querySelector("#add-new-task");
+const deleteBtn = document.querySelector("#delete-btn");
+
 
 const tasks = document.querySelectorAll('.task');
 tasks.forEach(task =>{
@@ -27,7 +30,15 @@ function  addDragEventToColumns(column){
         e.preventDefault();
         column.appendChild(dragElement);
         column.classList.remove("hoverover");
+            let allcol = [todo,progress,done];
+    allcol.forEach(col => {
+        const alltasks = col.querySelectorAll(".task");
+        const count  = col.querySelector(".Count");
+        count.innerHTML = alltasks.length;
     })
+    })
+
+
 }
 
 addDragEventToColumns(todo);
@@ -43,4 +54,34 @@ addTask.addEventListener("click", ()=>{
 
 bg.addEventListener("click",()=>{
     modal.classList.remove("active");
+})
+
+addNewTask.addEventListener("click", (dets)=>{
+const title = document.querySelector("#add-title").value;
+
+const desc = document.querySelector("#add-desc").value;
+
+const task = document.createElement("div");
+task.classList.add("task");
+task.setAttribute("draggable","true");
+
+task.innerHTML = `
+<h2>${title}</h2>
+<p>${desc}</p>
+<button>Delete</button>
+`
+
+task.addEventListener("drag" , ()=>{
+    dragElement = task;
+})
+
+todo.appendChild(task);
+modal.classList.remove("active");
+
+})
+
+
+deleteBtn.addEventListener("click", (dets)=>{
+    task = document.querySelector(".task");
+    
 })
